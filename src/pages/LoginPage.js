@@ -37,27 +37,50 @@ function LoginPage(props) {
   };
 
   return (
-    <div className="LoginPage">
-      <h1>Login</h1>
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <div className="card">
+            <div className="card-body">
+              <h1 className="card-title">Login</h1>
 
-      <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+              <form onSubmit={handleLoginSubmit}>
+                <div className="form-group">
+                  <label>Email:</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={handleEmail}
+                    className="form-control"
+                  />
+                </div>
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+                <div className="form-group">
+                  <label>Password:</label>
+                  <input
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={handlePassword}
+                    className="form-control"
+                  />
+                </div>
 
-        <button type="submit">Login</button>
-      </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+                <button type="submit" className="btn btn-primary">
+                  Login
+                </button>
+              </form>
+              {errorMessage && (
+                <p className="error-message">{errorMessage}</p>
+              )}
 
-      <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+              <p>Don't have an account yet?</p>
+              <Link to={"/signup"}> Sign Up</Link>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
