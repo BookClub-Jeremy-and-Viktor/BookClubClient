@@ -5,11 +5,12 @@ import HomePage from "./pages/HomePage";
 import EventListPage from "./pages/EventListPage";
 import EventDetailsPage from "./pages/EventDetailsPage";
 import EditEventPage from "./pages/EditEventPage";
-
+import BookListPage from "./pages/BookListPage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
+
 
 function App() {
   return (
@@ -22,6 +23,11 @@ function App() {
         <Route
           path="/events"
           element={ <IsPrivate> <EventListPage /> </IsPrivate> } 
+        />
+
+        <Route
+          path="/books"
+          element={ <BookListPage /> } 
         />
 
         <Route

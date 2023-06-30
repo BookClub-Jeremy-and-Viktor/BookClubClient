@@ -4,17 +4,22 @@ import booksService from "../services/books.service";
 function AddBook(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-
+  const [author, setAuthor] = useState("");
+  const [genre, setGenre] = useState("");
+  const [availability, setAvailability] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
     const { eventId } = props;
-    const requestBody = { title, description, eventId };
+    const requestBody = { title, description, author, genre, availability, eventId };
 
     booksService
       .createBook(requestBody)
       .then((response) => {
         setTitle("");
         setDescription("");
+        setAuthor("");
+        setGenre("");
+        setAvailability("");
         props.refreshEvents();
       })
       .catch((error) => console.log(error));
@@ -39,6 +44,30 @@ function AddBook(props) {
           name="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+        />
+
+        <label>Author:</label>
+        <input
+          type="text"
+          name="author"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
+
+        <label>Genre:</label>
+        <input
+          type="text"
+          name="genre"
+          value={genre}
+          onChange={(e) => setGenre(e.target.value)}
+        />
+
+        <label>Availability:</label>
+        <input
+          type="text"
+          name="availability"
+          value={availability}
+          onChange={(e) => setAvailability(e.target.value)}
         />
 
         <button type="submit">Add Book</button>
