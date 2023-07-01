@@ -37,31 +37,62 @@ function SignupPage(props) {
   };
 
   return (
-    <div className="SignupPage">
-      <h1>Sign Up</h1>
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <div className="card">
+            <div className="card-body">
+              <h1 className="card-title">Sign Up</h1>
 
-      <form onSubmit={handleSignupSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+              <form onSubmit={handleSignupSubmit}>
+                <div className="form-group">
+                  <label>Email:</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={handleEmail}
+                    className="form-control"
+                  />
+                </div>
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+                <div className="form-group">
+                  <label>Password:</label>
+                  <input
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={handlePassword}
+                    className="form-control"
+                  />
+                </div>
 
-        <label>Name:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
+                <div className="form-group">
+                  <label>Name:</label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={name}
+                    onChange={handleName}
+                    className="form-control"
+                  />
+                </div>
 
-        <button type="submit">Sign Up</button>
-      </form>
+                <button type="submit" className="btn btn-primary">
+                  Sign Up
+                </button>
+              </form>
 
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+              {errorMessage && (
+                <p className="error-message">{errorMessage}</p>
+              )}
 
-      <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+              <p>Already have an account?</p>
+              <Link to={"/login"}> Login</Link>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

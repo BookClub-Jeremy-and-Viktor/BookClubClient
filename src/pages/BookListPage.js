@@ -25,10 +25,16 @@ function BookListPage() {
   }, []);
 
   return (
-    <div className="BookListPage">
-      {books.map((book) => (
-        <BookCard key={book._id} {...book} />
-      ))}
+    <div className="container">
+      <div className="row">
+        {books.map((book, index) => (
+          <div className="col-12 col-sm-6 col-md-4 mb-3" key={book._id}>
+            <div className="w-100">
+              <BookCard {...book} />
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
