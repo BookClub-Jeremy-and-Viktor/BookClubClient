@@ -109,7 +109,7 @@ function EditBookPage(props) {
         <input
           type="text"
           name="genre"
-          value={WebGLRenderingContext}
+          value={genre}
           onChange={(e) => setGenre(e.target.value)}
         />
 

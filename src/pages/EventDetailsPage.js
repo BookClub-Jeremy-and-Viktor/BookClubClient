@@ -48,7 +48,6 @@ function EventDetailsPage (props) {
           <p>{event.time}</p>
           <p>{event.date}</p>
           <p>{event.comments}</p>
-          <p>{event.books}</p>
         </>
       )}
 

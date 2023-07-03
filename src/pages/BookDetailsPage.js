@@ -41,7 +41,7 @@ function BookDetailsPage (props) {
     <div className="BookDetails">
       {book && (
         <>
-          <h1>Title: {book.title}</h1>
+          <h1>{book.title}</h1>
           <p>Author: {book.author}</p>
           <p>Description: {book.description}</p>
           <p>Genre: {book.genre}</p>

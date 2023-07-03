@@ -29,7 +29,7 @@ function AddEvent(props) {
         setDescription("");
         setTime("");
         setDate("");
-        props.refreshEvents();
+        props.refreshEvent();
       })
       .catch((error) => console.log(error));
   };
