@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 
+
 function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -46,6 +47,12 @@ function Navbar() {
                 </li>
 
                 <li className="nav-item">
+                  <button className="btn btn-link" onClick={handleBooksClick} style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    Books
+                  </button>
+                </li>
+
+                <li className="nav-item">
                   <button className="btn btn-link" onClick={logOutUser} style={{ fontSize: "18px", fontWeight: "bold" }}>
                     Logout
                   </button>
@@ -54,12 +61,6 @@ function Navbar() {
                   <span className="nav-link navbar-text" style={{ fontSize: "18px", fontWeight: "bold" }}>
                     {user && user.name}
                   </span>
-                </li>
-
-                <li className="nav-item">
-                  <button className="btn btn-link" onClick={handleBooksClick} style={{ fontSize: "18px", fontWeight: "bold" }}>
-                    Books
-                  </button>
                 </li>
               </>
             )}

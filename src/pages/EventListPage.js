@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import AddEvent from "../components/AddEvent";
 import EventCard from "../components/EventCard";
 
 const API_URL = "http://localhost:5005";
@@ -28,12 +27,17 @@ function EventListPage() {
   }, []);
 
   return (
-    <div className="EventListPage">
-      <AddEvent refreshEvents={getAllEvents} />
-
-      {events.map((event) => (
-        <EventCard key={event._id} {...event} />
-      ))}
+    <div className="container">
+      <div className="row">
+        {events.map((event, index) => (
+          <div className="col-12 col-sm-6 col-md-4 mb-3" key={event._id}>
+            <div className="w-100">
+              <EventCard {...event} />
+            </div>
+          </div>
+          
+        ))}
+      </div>
     </div>
   );
 }

@@ -1,14 +1,31 @@
 import { Link } from "react-router-dom";
 
 // We are deconstructing props object directly in the parentheses of the function
-function EventCard ( { title, description, _id } ) {
+function EventCard ( { title, location, address, description, time, date, _id } ) {
   
   return (
     <div className="EventCard card">
       <Link to={`/events/${_id}`}>
         <h3>{title}</h3>
       </Link>
-      <p style={{ maxWidth: "400px" }}>{description} </p>
+      <img
+        class="card-img-top"
+        src="../images/event_logo2.png"
+        alt="bibliothek"
+      />
+      <div className="card-body">
+        <h4 className="card-subtitle mb-2 text-muted">Location:</h4>
+        <p className="card-text">{location}</p>
+        <h4 className="card-subtitle mb-2 text-muted">Address:</h4>
+        <p className="card-text">{address}</p>
+        <h4 className="card-subtitle mb-2 text-muted">Description:</h4>
+        <p className="card-text">{description}</p>
+        <h4 className="card-subtitle mb-2 text-muted">Time:</h4>
+        <p className="card-text">{time}</p>
+        <h4 className="card-subtitle mb-2 text-muted">Date:</h4>
+        <p className="card-text">{date}</p>
+        
+     </div>
     </div>
   );
 }

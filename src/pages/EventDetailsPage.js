@@ -42,7 +42,13 @@ function EventDetailsPage (props) {
       {event && (
         <>
           <h1>{event.title}</h1>
+          <p>{event.location}</p>
+          <p>{event.address}</p>
           <p>{event.description}</p>
+          <p>{event.time}</p>
+          <p>{event.date}</p>
+          <p>{event.comments}</p>
+          <p>{event.books}</p>
         </>
       )}
 

@@ -3,23 +3,25 @@ import booksService from "../services/books.service";
 
 function AddBook(props) {
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
   const [author, setAuthor] = useState("");
+  const [description, setDescription] = useState("");
   const [genre, setGenre] = useState("");
   const [availability, setAvailability] = useState("");
+  const [comments, setComments] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
     const { eventId } = props;
-    const requestBody = { title, description, author, genre, availability, eventId };
+    const requestBody = { title, author, description, genre, availability, comments, eventId };
 
     booksService
       .createBook(requestBody)
       .then((response) => {
         setTitle("");
+        setAuthor("")
         setDescription("");
-        setAuthor("");
         setGenre("");
         setAvailability("");
+        setComments("");
         props.refreshEvents();
       })
       .catch((error) => console.log(error));
@@ -37,6 +39,14 @@ function AddBook(props) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
+         
+         <label>Author:</label>
+        <input
+          type="text"
+          name="author"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
 
         <label>Description:</label>
         <textarea
@@ -46,14 +56,7 @@ function AddBook(props) {
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        <label>Author:</label>
-        <input
-          type="text"
-          name="author"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-        />
-
+        
         <label>Genre:</label>
         <input
           type="text"
@@ -70,6 +73,15 @@ function AddBook(props) {
           onChange={(e) => setAvailability(e.target.value)}
         />
 
+        <label>Comments:</label>
+        <textarea
+          type="text"
+          name="comments"
+          value={comments}
+          onChange={(e) => setComments(e.target.value)}
+        />
+
+        
         <button type="submit">Add Book</button>
       </form>
     </div>

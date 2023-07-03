@@ -6,11 +6,11 @@ const API_URL = "http://localhost:5005";
 
 function EditEventPage(props) {
   const [title, setTitle] = useState("");
-  const [location, setLocation] = useState("");
-  const [address, setAddress] = useState("");
+  const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
-  const [time, setTime] = useState("");
-  const [date, setDate] = useState("");
+  const [genre, setGenre] = useState("");
+  const [availability, setAvailability] = useState("");
+  const [comments, setComments] = useState("");
   
 
   const navigate =  useNavigate();
@@ -28,14 +28,13 @@ function EditEventPage(props) {
         { headers: { Authorization: `Bearer ${storedToken}` } }    
       )
       .then((response) => {
-        const oneEvent = response.data;
-        setTitle(oneEvent.title);
-        setLocation(oneEvent.location);
-        setAddress(oneEvent.address);
-        setDescription(oneEvent.description);
-        setTime(oneEvent.time);
-        setDate(oneEvent.description);
-        
+        const oneBook = response.data;
+        setTitle(oneBook.title);
+        setAuthor(oneBook.author);
+        setDescription(oneBook.description);
+        setGenre(oneBook.genre);        
+        setAvailability(oneBook.availability);
+        setComments(oneBook.comments);
       })
       .catch((error) => console.log(error));
     
@@ -44,7 +43,7 @@ function EditEventPage(props) {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { title, location, address, description, time, date, };
+    const requestBody = { title, author, description, genre, availability, comments};
   
     // Get the token from the localStorage
     const storedToken = localStorage.getItem('authToken');  
@@ -90,45 +89,47 @@ function EditEventPage(props) {
           onChange={(e) => setTitle(e.target.value)}
         />
 
-        <label>Location:</label>
+        <label>Author:</label>
         <input
           type="text"
-          name="location"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
+          name="author"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
         />
 
-        <label>Address:</label>
+        <label>Description:</label>
         <input
           type="text"
-          name="address"
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-        />
-        
-        <label>Description:</label>
-        <textarea
           name="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <label>Time:</label>
+        
+        <label>Genre:</label>
         <input
-          type="time"
-          name="time"
-          value={time}
-          onChange={(e) => setTime(e.target.value)}
+          type="text"
+          name="genre"
+          value={WebGLRenderingContext}
+          onChange={(e) => setGenre(e.target.value)}
         />
 
-        <label>Date:</label>
+        <label>Availability:</label>
         <input
-          type="date"
-          name="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
+          type="text"
+          name="availability"
+          value={availability}
+          onChange={(e) => setAvailability(e.target.value)}
         />
 
-      <button type="submit">Update Event</button>
+        <label>Comments:</label>
+        <input
+          type="text"
+          name="comments"
+          value={comments}
+          onChange={(e) => setComments(e.target.value)}
+        />
+        
+        <button type="submit">Update Event</button>
       </form>
 
       <button onClick={deleteEvent}>Delete Event</button>

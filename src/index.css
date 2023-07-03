@@ -46,15 +46,15 @@ textarea {
 }
 
 .card {
-  width: 300px;
+  width: auto;
   padding: 10px;
   box-shadow: 0px 2px 3px grey;
   margin: 0 auto;
   margin-bottom: 20px;
-  background: #94a7c8;
+  background: rgba(199,147,166,0.27);
   border-radius: 4px;
 }
-
+*/
 .EventCard h3::after {
   content: url("https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/m3/icon-expand.png");
   margin-left: 5px;
@@ -63,7 +63,7 @@ textarea {
 .EditEventPage,
 .AddEvent,
 .AddBook {
-  background: #f9eec3;
+  background: #ece2dd;
   border: 1px solid grey;
   box-shadow: 0px 2px 3px grey;
   width: 400px;
@@ -75,7 +75,7 @@ textarea {
 }
 
 .EditEventPage {
-  background-color: rgb(239, 196, 88);
+  background-color: rgb(237, 225, 194);
 }
 
 .EditEventPage form,
@@ -92,5 +92,5 @@ textarea {
 }
 
 .BookCard {
-  background-color: #dfeef9;
+  background-color: #e7e1f9;
 }
