@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import EventCard from "../components/EventCard";
+import AddEvent from "../components/AddEvent";
 
 const API_URL = "http://localhost:5005";
 
@@ -29,6 +30,7 @@ function EventListPage() {
   return (
     <div className="container">
       <div className="row">
+      <AddEvent refreshEvent={getAllEvents}/>
         {events.map((event, index) => (
           <div className="col-12 col-sm-6 col-md-4 mb-3" key={event._id}>
             <div className="w-100">
@@ -37,6 +39,7 @@ function EventListPage() {
           </div>
           
         ))}
+
       </div>
     </div>
   );

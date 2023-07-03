@@ -29,7 +29,7 @@ function App() {
 
         <Route
           path="/books"
-          element={<BookListPage /> } 
+          element={ <IsPrivate> <BookListPage /> </IsPrivate> } 
         />
 
         <Route

@@ -2,6 +2,8 @@ import { useState } from "react";
 import booksService from "../services/books.service";
 
 function AddBook(props) {
+
+  console.log(props)
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
@@ -22,7 +24,7 @@ function AddBook(props) {
         setGenre("");
         setAvailability("");
         setComments("");
-        props.refreshEvents();
+        props.refreshBooks();
       })
       .catch((error) => console.log(error));
   };
