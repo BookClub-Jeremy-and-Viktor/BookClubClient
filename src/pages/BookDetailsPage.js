@@ -41,12 +41,12 @@ function BookDetailsPage (props) {
     <div className="BookDetails">
       {book && (
         <>
-          <h1>{book.title}</h1>
-          <p>{book.author}</p>
-          <p>{book.description}</p>
-          <p>{book.genre}</p>
-          <p>{book.date}</p>
-          <p>{book.comments}</p>
+          <h1>Title: {book.title}</h1>
+          <p>Author: {book.author}</p>
+          <p>Description: {book.description}</p>
+          <p>Genre: {book.genre}</p>
+          <p>Availability: {book.availability}</p>
+          <p>Comments: {book.comments}</p>
         </>
       )}
 
