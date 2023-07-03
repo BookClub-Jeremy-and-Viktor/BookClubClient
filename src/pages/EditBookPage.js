@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 const API_URL = "http://localhost:5005";
 
-function EditEventPage(props) {
+function EditBookPage(props) {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
@@ -14,7 +14,7 @@ function EditEventPage(props) {
   
 
   const navigate =  useNavigate();
-  const { eventId } = useParams();
+  const { bookId } = useParams();
   
   
   useEffect(() => {
@@ -24,7 +24,7 @@ function EditEventPage(props) {
     // Send the token through the request "Authorization" Headers 
     axios
       .get(
-        `${API_URL}/api/events/${eventId}`,
+        `${API_URL}/api/books/${bookId}`,
         { headers: { Authorization: `Bearer ${storedToken}` } }    
       )
       .then((response) => {
@@ -38,7 +38,7 @@ function EditEventPage(props) {
       })
       .catch((error) => console.log(error));
     
-  }, [eventId]);
+  }, [bookId]);
   
 
   const handleFormSubmit = (e) => {
@@ -51,34 +51,34 @@ function EditEventPage(props) {
     // Send the token through the request "Authorization" Headers   
     axios
       .put(
-        `${API_URL}/api/events/${eventId}`,
+        `${API_URL}/api/books/${bookId}`,
         requestBody,
         { headers: { Authorization: `Bearer ${storedToken}` } }              
       )
       .then((response) => {
-        navigate(`/events/${eventId}`)
+        navigate(`/books/${bookId}`)
       });
   };
   
   
-  const deleteEvent = () => {
+  const deleteBook = () => {
     // Get the token from the localStorage
     const storedToken = localStorage.getItem('authToken');      
     
     // Send the token through the request "Authorization" Headers   
     axios
       .delete(
-        `${API_URL}/api/events/${eventId}`,
+        `${API_URL}/api/books/${bookId}`,
         { headers: { Authorization: `Bearer ${storedToken}` } }           
       )
-      .then(() => navigate("/events"))
+      .then(() => navigate("/books"))
       .catch((err) => console.log(err));
   };  
 
   
   return (
-    <div className="EditEventPage">
-      <h3>Edit the event</h3>
+    <div className="EditBookPage">
+      <h3>Edit the Book</h3>
 
       <form onSubmit={handleFormSubmit}>
         <label>Title:</label>
@@ -129,12 +129,12 @@ function EditEventPage(props) {
           onChange={(e) => setComments(e.target.value)}
         />
         
-        <button type="submit">Update Event</button>
+        <button type="submit">Update Book</button>
       </form>
 
-      <button onClick={deleteEvent}>Delete Event</button>
+      <button onClick={deleteBook}>Delete Book</button>
     </div>
   );
 }
 
-export default EditEventPage;
+export default EditBookPage;
