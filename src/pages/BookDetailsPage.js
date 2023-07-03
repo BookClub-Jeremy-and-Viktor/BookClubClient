@@ -45,7 +45,7 @@ function BookDetailsPage (props) {
           <p>{book.author}</p>
           <p>{book.description}</p>
           <p>{book.genre}</p>
-          <p>{book.date}</p>
+          <p>{book.availability}</p>
           <p>{book.comments}</p>
         </>
       )}
