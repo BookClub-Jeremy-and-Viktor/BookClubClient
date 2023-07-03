@@ -1,5 +1,5 @@
 import React from "react";
-import BookListPage from "./BookListPage";
+// import BookListPage from "./BookListPage";
 
 function HomePage() {
   return (
@@ -8,7 +8,7 @@ function HomePage() {
       <h3>Please sign up or login to see the available events and books</h3>
       <h4>After the registration or the sign in, just click the events or books title</h4>
       <div className="book-card-container">
-        <BookListPage />
+        {/* <BookListPage /> */}
         <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">

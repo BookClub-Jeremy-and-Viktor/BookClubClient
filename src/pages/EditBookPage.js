@@ -77,8 +77,8 @@ function EditBookPage(props) {
 
   
   return (
-    <div className="EditEBookPage">
-      <h3>Edit the book</h3>
+    <div className="EditEventPage">
+      <h3>Edit the event</h3>
 
       <form onSubmit={handleFormSubmit}>
         <label>Title:</label>
@@ -109,7 +109,7 @@ function EditBookPage(props) {
         <input
           type="text"
           name="genre"
-          value={WebGLRenderingContext}
+          value={genre}
           onChange={(e) => setGenre(e.target.value)}
         />
 

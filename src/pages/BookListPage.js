@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import BookCard from "../components/BookCard";
+import AddBook from "../components/AddBook";
 
 const API_URL = "http://localhost:5005";
 
@@ -27,6 +28,7 @@ function BookListPage() {
   return (
     <div className="container">
       <div className="row">
+        <AddBook refreshBooks={getAllBooks}/>
         {books.map((book, index) => (
           <div className="col-12 col-sm-6 col-md-4 mb-3" key={book._id}>
             <div className="w-100">

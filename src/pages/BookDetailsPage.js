@@ -42,18 +42,13 @@ function BookDetailsPage (props) {
       {book && (
         <>
           <h1>{book.title}</h1>
-          <p>{book.author}</p>
-          <p>{book.description}</p>
-          <p>{book.genre}</p>
-          <p>{book.availability}</p>
-          <p>{book.comments}</p>
+          <p>Author: {book.author}</p>
+          <p>Description: {book.description}</p>
+          <p>Genre: {book.genre}</p>
+          <p>Availability: {book.availability}</p>
+          <p>Comments: {book.comments}</p>
         </>
       )}
-
-      
-      <AddEvent refreshBook={getBook} bookId={bookId} />          
-
-      {/* book && book.event.map((event) => <EventCard key={event._id} {...event} /> )*/} 
 
       <Link to="/books">
         <button>Back to Books</button>
@@ -62,6 +57,11 @@ function BookDetailsPage (props) {
       <Link to={`/books/edit/${bookId}`}>
         <button>Edit Book</button>
       </Link>
+
+      
+      <AddEvent refreshBook={getBook} bookId={bookId} />          
+
+      {/* book && book.event.map((event) => <EventCard key={event._id} {...event} /> )*/} 
       
     </div>
   );
