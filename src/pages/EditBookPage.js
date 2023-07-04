@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from 'react-router-dom';
 
-const API_URL = "http://localhost:5005";
+// const API_URL = "http://localhost:5005";
 
 function EditBookPage(props) {
   const [title, setTitle] = useState("");
@@ -24,7 +24,7 @@ function EditBookPage(props) {
     // Send the token through the request "Authorization" Headers 
     axios
       .get(
-        `${API_URL}/api/books/${bookId}`,
+        `${process.env.REACT_APP_SERVER_URL}/api/books/${bookId}`,
         { headers: { Authorization: `Bearer ${storedToken}` } }    
       )
       .then((response) => {
@@ -51,7 +51,7 @@ function EditBookPage(props) {
     // Send the token through the request "Authorization" Headers   
     axios
       .put(
-        `${API_URL}/api/books/${bookId}`,
+        `${process.env.REACT_APP_SERVER_URL}/api/books/${bookId}`,
         requestBody,
         { headers: { Authorization: `Bearer ${storedToken}` } }              
       )
@@ -68,7 +68,7 @@ function EditBookPage(props) {
     // Send the token through the request "Authorization" Headers   
     axios
       .delete(
-        `${API_URL}/api/books/${bookId}`,
+        `${process.env.REACT_APP_SERVER_URL}/api/books/${bookId}`,
         { headers: { Authorization: `Bearer ${storedToken}` } }           
       )
       .then(() => navigate("/books"))

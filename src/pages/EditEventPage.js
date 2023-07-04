@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from 'react-router-dom';
 
-const API_URL = "http://localhost:5005";
+// const API_URL = "http://localhost:5005";
 
 function EditEventPage(props) {
   const [title, setTitle] = useState("");
@@ -24,7 +24,7 @@ function EditEventPage(props) {
     // Send the token through the request "Authorization" Headers 
     axios
       .get(
-        `${API_URL}/api/events/${eventId}`,
+        `${process.env.REACT_APP_SERVER_URL}/api/events/${eventId}`,
         { headers: { Authorization: `Bearer ${storedToken}` } }    
       )
       .then((response) => {
@@ -52,7 +52,7 @@ function EditEventPage(props) {
     // Send the token through the request "Authorization" Headers   
     axios
       .put(
-        `${API_URL}/api/events/${eventId}`,
+        `${process.env.REACT_APP_SERVER_URL}/api/events/${eventId}`,
         requestBody,
         { headers: { Authorization: `Bearer ${storedToken}` } }              
       )
@@ -69,7 +69,7 @@ function EditEventPage(props) {
     // Send the token through the request "Authorization" Headers   
     axios
       .delete(
-        `${API_URL}/api/events/${eventId}`,
+        `${process.env.REACT_APP_SERVER_URL}/api/events/${eventId}`,
         { headers: { Authorization: `Bearer ${storedToken}` } }           
       )
       .then(() => navigate("/events"))

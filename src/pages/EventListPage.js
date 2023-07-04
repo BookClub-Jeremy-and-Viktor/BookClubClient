@@ -3,7 +3,7 @@ import axios from "axios";
 import EventCard from "../components/EventCard";
 import AddEvent from "../components/AddEvent";
 
-const API_URL = "http://localhost:5005";
+// const API_URL = "http://localhost:5005";
 
 function EventListPage() {
   const [events, setEvents] = useState([]);
@@ -14,7 +14,7 @@ function EventListPage() {
 
     // Send the token through the request "Authorization" Headers
     axios
-      .get(`${API_URL}/api/events`, {
+      .get(`${process.env.REACT_APP_SERVER_URL}/api/events`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => setEvents(response.data))

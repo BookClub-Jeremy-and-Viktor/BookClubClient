@@ -3,8 +3,6 @@ import axios from "axios";
 import BookCard from "../components/BookCard";
 import AddBook from "../components/AddBook";
 
-const API_URL = "http://localhost:5005";
-
 function BookListPage() {
   const [books, setBooks] = useState([]);
 
@@ -14,7 +12,7 @@ function BookListPage() {
 
     // Send the token through the request "Authorization" Headers
     axios
-      .get(`${API_URL}/api/books`, {
+      .get(`${process.env.REACT_APP_SERVER_URL}/api/books`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => setBooks(response.data))
