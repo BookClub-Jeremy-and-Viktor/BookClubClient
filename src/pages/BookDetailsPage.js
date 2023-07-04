@@ -5,7 +5,7 @@ import AddEvent from "../components/AddEvent";
 
 //import EventCard from "../components/EventCard";
 
-const API_URL = "http://localhost:5005";
+// const API_URL = "http://localhost:5005";
 
 
 function BookDetailsPage (props) {
@@ -20,7 +20,7 @@ function BookDetailsPage (props) {
     // Send the token through the request "Authorization" Headers
     axios
       .get(
-        `${API_URL}/api/books/${bookId}`,
+        `${process.env.REACT_APP_SERVER_URL}/api/books/${bookId}`,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
       .then((response) => {
