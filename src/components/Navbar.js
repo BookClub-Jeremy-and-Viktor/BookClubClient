@@ -11,6 +11,14 @@ function Navbar() {
     navigate("/books");
   };
 
+  const handleMoviesClick = () => {
+    navigate("/movies/add");
+  };
+
+  const handleEventsClick = () => {
+    navigate("/events");
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -41,14 +49,20 @@ function Navbar() {
             {isLoggedIn && (
               <>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/events" style={{ fontSize: "18px", fontWeight: "bold" }}>
+                  <button className="btn btn-link" onClick={handleEventsClick} style={{ fontSize: "18px", fontWeight: "bold" }}>
                     Events
-                  </Link>
+                  </button>
                 </li>
 
                 <li className="nav-item">
                   <button className="btn btn-link" onClick={handleBooksClick} style={{ fontSize: "18px", fontWeight: "bold" }}>
                     Books
+                  </button>
+                </li>
+
+                <li className="nav-item">
+                  <button className="btn btn-link" onClick={handleMoviesClick} style={{ fontSize: "18px", fontWeight: "bold" }}>
+                    Add Image
                   </button>
                 </li>
 
