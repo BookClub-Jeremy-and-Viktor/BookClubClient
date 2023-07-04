@@ -25,7 +25,7 @@ function App() {
       <Routes>      
         <Route path="/" element={<HomePage />} />
 
-        <Route path="/" element={<IsPrivate> <HomePage2 /> </IsPrivate>} />
+        <Route path="/movies" element={<IsPrivate> <HomePage2 /> </IsPrivate>} />
         <Route path="/movies/add" element={ <IsPrivate><AddMovie /></IsPrivate> } />
 
         <Route
