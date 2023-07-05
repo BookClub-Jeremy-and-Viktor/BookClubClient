@@ -1,70 +1,60 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-import AddEvent from "../components/AddEvent";
+import AddBook from "../components/AddBook";
+import BookCard from "../components/BookCard";
 
-//import EventCard from "../components/EventCard";
+function EventDetailsPage(props) {
+  const [event, setEvent] = useState(null);
+  const { eventId } = useParams();
 
-// const API_URL = "http://localhost:5005";
+  const getEvent = () => {
+    const storedToken = localStorage.getItem("authToken");
 
-
-function BookDetailsPage (props) {
-  const [book, setBook] = useState(null);
-  const { bookId } = useParams();
-  
-  
-  const getBook = () => {
-    // Get the token from the localStorage
-    const storedToken = localStorage.getItem('authToken');
-
-    // Send the token through the request "Authorization" Headers
     axios
-      .get(
-        `${process.env.REACT_APP_SERVER_URL}/api/books/${bookId}`,
-        { headers: { Authorization: `Bearer ${storedToken}` } }
-      )
+      .get(`${process.env.REACT_APP_SERVER_URL}/api/events/${eventId}`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
       .then((response) => {
-        const oneBook = response.data;
-        setBook(oneBook);
+        const oneEvent = response.data;
+        setEvent(oneEvent);
       })
       .catch((error) => console.log(error));
   };
-  
-  
-  useEffect(()=> {
-    getBook();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [] );
 
-  
+  useEffect(() => {
+    getEvent();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <div className="BookDetails">
-      {book && (
+    <div className="container">
+      {event && (
         <>
-          <h1>{book.title}</h1>
-          <p>Author: {book.author}</p>
-          <p>Description: {book.description}</p>
-          <p>Genre: {book.genre}</p>
-          <p>Availability: {book.availability}</p>
-          <p>Comments: {book.comments}</p>
+          <h1>{event.title}</h1>
+          <p>{event.location}</p>
+          <p>{event.address}</p>
+          <p>{event.description}</p>
+          <p>{event.time}</p>
+          <p>{event.date}</p>
+          <p>{event.comments}</p>
         </>
       )}
 
-      <Link to="/books">
-        <button>Back to Books</button>
-      </Link>
-          
-      <Link to={`/books/edit/${bookId}`}>
-        <button>Edit Book</button>
+      <Link to="/events">
+        <button className="btn btn-primary">Back to Events</button>
       </Link>
 
-      
-      <AddEvent refreshBook={getBook} bookId={bookId} />          
+      <Link to={`/events/edit/${eventId}`}>
+        <button className="btn btn-primary">Edit Event</button>
+      </Link>
 
-      {/* book && book.event.map((event) => <EventCard key={event._id} {...event} /> )*/} 
-      
+      <AddBook refreshEvent={getEvent} eventId={eventId} />
+
+      {event &&
+        event.books.map((book) => <BookCard key={book._id} {...book} />)}
     </div>
   );
 }
 
-export default BookDetailsPage;
+export default EventDetailsPage;
