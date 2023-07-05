@@ -28,26 +28,32 @@ function BookDetailsPage(props) {
 
   return (
     <div className="container">
-      {book && (
-        <>
-          <h1>{book.title}</h1>
-          <p>Author: {book.author}</p>
-          <p>Description: {book.description}</p>
-          <p>Genre: {book.genre}</p>
-          <p>Availability: {book.availability}</p>
-          <p>Comments: {book.comments}</p>
-        </>
-      )}
+      <div className="row">
+        <div className="col-md-6">
+          {book && (
+            <>
+              <h1>{book.title}</h1>
+              <p>Author: {book.author}</p>
+              <p>Description: {book.description}</p>
+              <p>Genre: {book.genre}</p>
+              <p>Availability: {book.availability}</p>
+              <p>Comments: {book.comments}</p>
+            </>
+          )}
 
-      <Link to="/books">
-        <button className="btn btn-primary">Back to Books</button>
-      </Link>
+          <Link to="/books">
+            <button className="btn btn-primary">Back to Books</button>
+          </Link>
 
-      <Link to={`/books/edit/${bookId}`}>
-        <button className="btn btn-primary">Edit Book</button>
-      </Link>
+          <Link to={`/books/edit/${bookId}`}>
+            <button className="btn btn-primary">Edit Book</button>
+          </Link>
+        </div>
 
-      <AddEvent refreshBook={getBook} bookId={bookId} />
+        <div className="col-md-6">
+          <AddEvent refreshBook={getBook} bookId={bookId} />
+        </div>
+      </div>
     </div>
   );
 }

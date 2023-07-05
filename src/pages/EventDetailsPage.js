@@ -29,30 +29,35 @@ function EventDetailsPage(props) {
 
   return (
     <div className="container">
-      {event && (
-        <>
-          <h1>{event.title}</h1>
-          <p>Location: {event.location}</p>
-          <p>Address: {event.address}</p>
-          <p>Description: {event.description}</p>
-          <p>Time: {event.time}</p>
-          <p>Date: {event.date}</p>
-          
-        </>
-      )}
+      <div className="row">
+        <div className="col-md-6">
+          {event && (
+            <>
+              <h1>{event.title}</h1>
+              <p>Location: {event.location}</p>
+              <p>Address: {event.address}</p>
+              <p>Description: {event.description}</p>
+              <p>Time: {event.time}</p>
+              <p>Date: {event.date}</p>
+            </>
+          )}
 
-      <Link to="/events">
-        <button className="btn btn-primary">Back to Events</button>
-      </Link>
+          <Link to="/events">
+            <button className="btn btn-primary">Back to Events</button>
+          </Link>
 
-      <Link to={`/events/edit/${eventId}`}>
-        <button className="btn btn-primary">Edit Event</button>
-      </Link>
+          <Link to={`/events/edit/${eventId}`}>
+            <button className="btn btn-primary">Edit Event</button>
+          </Link>
 
-      <AddBook refreshEvent={getEvent} eventId={eventId} />
+          {event &&
+            event.books.map((book) => <BookCard key={book._id} {...book} />)}
+        </div>
 
-      {event &&
-        event.books.map((book) => <BookCard key={book._id} {...book} />)}
+        <div className="col-md-6">
+          <AddBook refreshEvent={getEvent} eventId={eventId} />
+        </div>
+      </div>
     </div>
   );
 }

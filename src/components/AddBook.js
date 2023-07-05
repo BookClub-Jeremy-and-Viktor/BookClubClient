@@ -84,7 +84,7 @@ function AddBook(props) {
         />
 
         
-        <button type="submit">Add Book</button>
+        <button type="submit" className="btn btn-primary">Add Book</button>
       </form>
     </div>
   );

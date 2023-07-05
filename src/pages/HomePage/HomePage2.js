@@ -8,7 +8,7 @@ function HomePage() {
   useEffect(() => {
     service.getMovies()
       .then((data) => {
-        // console.log("data", data);
+        console.log("data", data);
         setMovies(data);
       })
       .catch((err) => console.log(err));
