@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import service from "../../api/service";
 
-function HomePage() {
+function HomePage2() {
   const [movies, setMovies] = useState([]);
 
   // Run the effect after the initial render to get a list of movies from the server
@@ -15,7 +15,7 @@ function HomePage() {
   }, []); //  <-- This effect will run only once, after the initial render
 
   return (
-    <div className="HomePage">
+    <div className="HomePage2">
       <h2>Movies</h2>
       {movies &&
         movies.map((movie) => (
@@ -29,4 +29,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default HomePage2

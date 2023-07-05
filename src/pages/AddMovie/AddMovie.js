@@ -2,21 +2,26 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import service from "../../api/service";
 import axios from "axios";
+
 function AddMovie() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
   const navigate = useNavigate();
-const token = localStorage.getItem("authToken");
+  const token = localStorage.getItem("authToken");
   const handleFileUpload = (e) => {
     const uploadData = new FormData();
     uploadData.append("imageUrl", e.target.files[0]);
 
- axios.post("http://localhost:5005/api/upload", uploadData, {headers:{Authorization:`Bearer ${token}`}})    
-.then(response => {
-setImageUrl (response.data.fileUrl)
-})}
+    axios
+      .post("http://localhost:5005/api/upload", uploadData, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        setImageUrl(response.data.fileUrl);
+      });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import AddBook from "../components/AddBook";
 import BookCard from "../components/BookCard";
+import "./EventDetailsPage.css"; // Import the CSS file
 
 function EventDetailsPage(props) {
   const [event, setEvent] = useState(null);
@@ -30,7 +31,7 @@ function EventDetailsPage(props) {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-6">
+        <div className="col-md-6 custom-col"> 
           {event && (
             <>
               <h1>{event.title}</h1>
