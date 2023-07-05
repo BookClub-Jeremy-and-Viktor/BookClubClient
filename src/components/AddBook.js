@@ -1,5 +1,8 @@
 import { useState } from "react";
 import booksService from "../services/books.service";
+import axios from "axios";
+
+
 
 function AddBook(props) {
 
@@ -10,10 +13,30 @@ function AddBook(props) {
   const [genre, setGenre] = useState("");
   const [availability, setAvailability] = useState("");
   const [comments, setComments] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const token = localStorage.getItem("authToken");
+
+  const handleFileUpload = (e) => {
+    e.preventDefault();
+    console.log('my image', e.target.files[0])
+    const uploadData = new FormData();
+    uploadData.append("imageUrl", e.target.files[0]);
+
+    axios
+      .post("http://localhost:5005/api/upload", uploadData, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        console.log('cloudy url', response.data.imageUrl)
+        setImageUrl(response.data.imageUrl);
+      });
+  };
+  
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const { eventId } = props;
-    const requestBody = { title, author, description, genre, availability, comments, eventId };
+    const requestBody = { title, author, description, genre, availability, comments, eventId, imageUrl };
 
     booksService
       .createBook(requestBody)
@@ -24,6 +47,7 @@ function AddBook(props) {
         setGenre("");
         setAvailability("");
         setComments("");
+        setImageUrl("");
         props.refreshBooks();
       })
       .catch((error) => console.log(error));
@@ -66,6 +90,14 @@ function AddBook(props) {
           value={genre}
           onChange={(e) => setGenre(e.target.value)}
         />
+
+        <div className="mb-3">
+          <input
+            type="file"
+            name="imageUrl"
+            onChange={(e) => handleFileUpload(e)}
+          />
+        </div>
 
         <label>Availability:</label>
         <input

@@ -12,8 +12,6 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
-import HomePage2 from "./pages/HomePage/HomePage2";
-import AddMovie from "./pages/AddMovie/AddMovie";
 
 
 function App() {
@@ -24,9 +22,6 @@ function App() {
       
       <Routes>      
         <Route path="/" element={<HomePage />} />
-
-        <Route path="/movies" element={<IsPrivate> <HomePage2 /> </IsPrivate>} />
-        <Route path="/movies/add" element={ <IsPrivate><AddMovie /></IsPrivate> } />
 
         <Route
           path="/events"
