@@ -77,8 +77,8 @@ function EditBookPage(props) {
 
   
   return (
-    <div className="EditEventPage">
-      <h3>Edit the event</h3>
+    <div className="EditBookPage">
+      <h3>Edit the book</h3>
 
       <form onSubmit={handleFormSubmit}>
         <label>Title:</label>
