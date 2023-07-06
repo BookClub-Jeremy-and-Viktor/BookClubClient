@@ -11,6 +11,8 @@ function EditBookPage(props) {
   const [genre, setGenre] = useState("");
   const [availability, setAvailability] = useState("");
   const [comments, setComments] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+
   
 
   const navigate =  useNavigate();
@@ -35,6 +37,7 @@ function EditBookPage(props) {
         setGenre(oneBook.genre);        
         setAvailability(oneBook.availability);
         setComments(oneBook.comments);
+        setImageUrl(oneBook.imageUrl);
       })
       .catch((error) => console.log(error));
     
@@ -43,7 +46,7 @@ function EditBookPage(props) {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { title, author, description, genre, availability, comments};
+    const requestBody = { title, author, description, genre, availability, comments, imageUrl};
   
     // Get the token from the localStorage
     const storedToken = localStorage.getItem('authToken');  
@@ -128,6 +131,15 @@ function EditBookPage(props) {
           value={comments}
           onChange={(e) => setComments(e.target.value)}
         />
+
+        <label>Image:</label>
+        <input
+          type="file"
+          name="imageUrl"
+          onChange={(e) => setImageUrl(e.target.value)}
+        />
+
+        
         
         <button type="submit" className="btn btn-primary">Update Book</button>
       </form>

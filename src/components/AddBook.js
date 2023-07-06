@@ -4,6 +4,7 @@ import axios from "axios";
 
 
 
+
 function AddBook(props) {
 
   console.log(props)
@@ -23,12 +24,11 @@ function AddBook(props) {
     uploadData.append("imageUrl", e.target.files[0]);
 
     axios
-      .post("http://localhost:5005/api/upload", uploadData, {
+      .post(`${process.env.REACT_APP_SERVER_URL}/api/upload`, uploadData, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        console.log('cloudy url', response.data.imageUrl)
-        setImageUrl(response.data.imageUrl);
+        setImageUrl(response.data.fileUrl);
       });
   };
   
@@ -91,14 +91,6 @@ function AddBook(props) {
           onChange={(e) => setGenre(e.target.value)}
         />
 
-        <div className="mb-3">
-          <input
-            type="file"
-            name="imageUrl"
-            onChange={(e) => handleFileUpload(e)}
-          />
-        </div>
-
         <label>Availability:</label>
         <input
           type="text"
@@ -114,6 +106,14 @@ function AddBook(props) {
           value={comments}
           onChange={(e) => setComments(e.target.value)}
         />
+
+<div className="mb-3">
+          <input
+            type="file"
+            name="imageUrl"
+            onChange={(e) => handleFileUpload(e)}
+          />
+        </div>
 
         
         <button type="submit" className="btn btn-primary">Add Book</button>

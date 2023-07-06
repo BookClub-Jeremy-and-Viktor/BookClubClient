@@ -27,12 +27,16 @@ function BookDetailsPage(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+
+  console.log(book);
+
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-6 custom-col"> {/* Add the custom class */}
           {book && (
             <>
+              <img src={book.imageUrl} alt="book" />
               <h3>{book.title}</h3>
               <p>Author: {book.author}</p>
               <p>Description: {book.description}</p>

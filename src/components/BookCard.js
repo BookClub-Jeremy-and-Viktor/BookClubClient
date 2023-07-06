@@ -8,6 +8,7 @@ function BookCard({
   availability,
   comments,
   _id,
+  imageUrl
 }) {
   return (
     <div className="BookCard card">
@@ -17,7 +18,7 @@ function BookCard({
 
       <img
         class="card-img-top"
-        src="../images/bibliothek.png"
+        src={imageUrl}
         alt="bibliothek"
       />
       <div className="card-body">
