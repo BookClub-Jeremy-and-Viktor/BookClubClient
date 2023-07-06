@@ -44,7 +44,7 @@ function EventDetailsPage(props) {
           )}
 
           <Link to="/events">
-            <button className="btn btn-primary">Back to Events</button>
+            <button className="btn btn-secondary">Back to Events</button>
           </Link>
 
           <Link to={`/events/edit/${eventId}`}>

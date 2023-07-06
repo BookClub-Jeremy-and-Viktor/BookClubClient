@@ -128,10 +128,10 @@ function EditEventPage(props) {
           onChange={(e) => setDate(e.target.value)}
         />
 
-      <button type="submit" className="btn btn-primary">Update Event</button>
+      <button type="submit" className="btn btn-secondary">Update Event</button>
       </form>
 
-      <button onClick={deleteEvent} className="btn btn-primary">Delete Event</button>
+      <button onClick={deleteEvent} className="btn btn-danger">Delete Event</button>
     </div>
   );
 }

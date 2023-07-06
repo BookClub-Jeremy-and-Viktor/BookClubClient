@@ -43,7 +43,7 @@ function BookDetailsPage(props) {
           )}
 
           <Link to="/books">
-            <button className="btn btn-primary">Back to Books</button>
+            <button className="btn btn-secondary">Back to Books</button>
           </Link>
 
           <Link to={`/books/edit/${bookId}`}>
