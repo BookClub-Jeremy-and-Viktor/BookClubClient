@@ -22,7 +22,7 @@ function EditBookPage(props) {
   
   useEffect(() => {
     // Get the token from the localStorage
-    const storedToken = localStorage.getItem('authToken');
+    
     
     // Send the token through the request "Authorization" Headers 
     axios
