@@ -34,6 +34,7 @@ function EventDetailsPage(props) {
         <div className="col-md-6 custom-col"> 
           {event && (
             <>
+              <img src={event.imageUrl} alt="event" />
               <h3>{event.title}</h3>
               <p>Location: {event.location}</p>
               <p>Address: {event.address}</p>

@@ -22,7 +22,7 @@ function EditBookPage(props) {
   
   useEffect(() => {
     // Get the token from the localStorage
-
+    
     
     // Send the token through the request "Authorization" Headers 
     axios
@@ -42,7 +42,7 @@ function EditBookPage(props) {
       })
       .catch((error) => console.log(error));
     
-  }, [bookId]);
+    }, [bookId]);
 
   const handleFileUpload = (e) => {
     e.preventDefault();

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import eventsService from "../services/events.service";
+import axios from "axios";
 
 function AddEvent(props) {
   const [title, setTitle] = useState("");
@@ -8,10 +9,27 @@ function AddEvent(props) {
   const [description, setDescription] = useState("");
   const [time, setTime] = useState("");
   const [date, setDate] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const token = localStorage.getItem("authToken");
+
+  const handleFileUpload = (e) => {
+    e.preventDefault();
+    const uploadData = new FormData();
+    uploadData.append("imageUrl", e.target.files[0]);
+
+    axios
+      .post(`${process.env.REACT_APP_SERVER_URL}/api/upload`, uploadData, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        setImageUrl(response.data.fileUrl);
+      });
+  };
   
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { title, location, address, description, time, date, };
+    const requestBody = { title, location, address, description, time, date, imageUrl};
 
     // axios
     //   .post(
@@ -29,6 +47,7 @@ function AddEvent(props) {
         setDescription("");
         setTime("");
         setDate("");
+        setImageUrl("");
         props.refreshEvent();
       })
       .catch((error) => console.log(error));
@@ -84,6 +103,14 @@ function AddEvent(props) {
           value={date}
           onChange={(e) => setDate(e.target.value)}
         />
+
+<div className="mb-3">
+          <input
+            type="file"
+            name="imageUrl"
+            onChange={(e) => handleFileUpload(e)}
+          />
+        </div>
 
         
 
