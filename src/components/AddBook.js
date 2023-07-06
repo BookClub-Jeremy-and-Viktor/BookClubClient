@@ -2,12 +2,7 @@ import { useState } from "react";
 import booksService from "../services/books.service";
 import axios from "axios";
 
-
-
-
 function AddBook(props) {
-
-  console.log(props)
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
@@ -30,18 +25,26 @@ function AddBook(props) {
         setImageUrl(response.data.fileUrl);
       });
   };
-  
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const { eventId } = props;
-    const requestBody = { title, author, description, genre, availability, comments, eventId, imageUrl };
+    const requestBody = {
+      title,
+      author,
+      description,
+      genre,
+      availability,
+      comments,
+      eventId,
+      imageUrl,
+    };
 
     booksService
       .createBook(requestBody)
       .then((response) => {
         setTitle("");
-        setAuthor("")
+        setAuthor("");
         setDescription("");
         setGenre("");
         setAvailability("");
@@ -57,15 +60,15 @@ function AddBook(props) {
       <h3>Add New Book</h3>
 
       <form onSubmit={handleSubmit}>
-        <label >Title:</label>
+        <label>Title:</label>
         <input
           type="text"
           name="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-         
-         <label>Author:</label>
+
+        <label>Author:</label>
         <input
           type="text"
           name="author"
@@ -81,7 +84,6 @@ function AddBook(props) {
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        
         <label>Genre:</label>
         <input
           type="text"
@@ -106,7 +108,7 @@ function AddBook(props) {
           onChange={(e) => setComments(e.target.value)}
         />
 
-<div className="mb-3">
+        <div className="mb-3">
           <input
             type="file"
             name="imageUrl"
@@ -114,8 +116,9 @@ function AddBook(props) {
           />
         </div>
 
-        
-        <button type="submit" className="btn btn-primary">Add Book</button>
+        <button type="submit" className="btn btn-primary">
+          Add Book
+        </button>
       </form>
     </div>
   );
