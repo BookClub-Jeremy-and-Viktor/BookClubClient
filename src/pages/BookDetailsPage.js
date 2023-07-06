@@ -33,7 +33,7 @@ function BookDetailsPage(props) {
         <div className="col-md-6 custom-col"> {/* Add the custom class */}
           {book && (
             <>
-              <h1>{book.title}</h1>
+              <h3>{book.title}</h3>
               <p>Author: {book.author}</p>
               <p>Description: {book.description}</p>
               <p>Genre: {book.genre}</p>
