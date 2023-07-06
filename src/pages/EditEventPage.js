@@ -11,12 +11,12 @@ function EditEventPage(props) {
   const [description, setDescription] = useState("");
   const [time, setTime] = useState("");
   const [date, setDate] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  
   
 
   const navigate =  useNavigate();
   const { eventId } = useParams();
-  const storedToken = localStorage.getItem('authToken');
+  
   
   useEffect(() => {
     // Get the token from the localStorage
@@ -36,32 +36,16 @@ function EditEventPage(props) {
         setDescription(oneEvent.description);
         setTime(oneEvent.time);
         setDate(oneEvent.description);
-        setImageUrl(oneEvent.imageUrl);
         
       })
       .catch((error) => console.log(error));
     
   }, [eventId]);
-
-  const handleFileUpload = (e) => {
-    e.preventDefault();
-    const uploadData = new FormData();
-    uploadData.append("imageUrl", e.target.files[0]);
-
-    axios
-      .post(`${process.env.REACT_APP_SERVER_URL}/api/upload`, uploadData, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
-      .then((response) => {
-        setImageUrl(response.data.fileUrl);
-      });
-  };
-  
   
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { title, location, address, description, time, date, imageUrl };
+    const requestBody = { title, location, address, description, time, date, };
   
     // Get the token from the localStorage
     const storedToken = localStorage.getItem('authToken');  
@@ -143,13 +127,6 @@ function EditEventPage(props) {
           name="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
-        />
-
-<label>Image:</label>
-        <input
-          type="file"
-          name="imageUrl"
-          onChange={(e) => handleFileUpload(e)}
         />
 
       <button type="submit" className="btn btn-secondary">Update Event</button>

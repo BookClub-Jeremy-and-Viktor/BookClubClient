@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 // We are deconstructing props object directly in the parentheses of the function
-function EventCard ( { title, location, address, description, time, date, _id, imageUrl } ) {
+function EventCard ( { title, location, address, description, time, date, _id } ) {
   
   return (
     <div className="EventCard card">
@@ -10,7 +10,7 @@ function EventCard ( { title, location, address, description, time, date, _id, i
       </Link>
       <img
         class="card-img-top"
-        src={imageUrl}
+        src="../images/event_logo2.png"
         alt="bibliothek"
       />
       <div className="card-body">
