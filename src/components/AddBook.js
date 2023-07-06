@@ -30,11 +30,11 @@ function AddBook(props) {
   };
 
   return (
-    <div className="AddBook">
+    <div className="AddBook ">
       <h3>Add New Book</h3>
 
       <form onSubmit={handleSubmit}>
-        <label>Title:</label>
+        <label >Title:</label>
         <input
           type="text"
           name="title"

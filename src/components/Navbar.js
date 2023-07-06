@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 
-
 function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -11,19 +10,19 @@ function Navbar() {
     navigate("/books");
   };
 
-  const handleMoviesClick = () => {
-    navigate("/movies/add");
-  };
-
   const handleEventsClick = () => {
     navigate("/events");
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light ">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          <img src="../images/bookclub2.png" alt="Logo" style={{ marginRight: "10px" }} />
+          <img
+            src="../images/bookclub2.png"
+            alt="Logo"
+            style={{ marginRight: "10px" }}
+          />
         </Link>
 
         <button
@@ -38,10 +37,17 @@ function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <div
+          className="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link" to="/" style={{ fontSize: "18px", fontWeight: "bold" }}>
+              <Link
+                className="nav-link"
+                to="/"
+                style={{ fontSize: "18px", fontWeight: "bold" }}
+              >
                 Home
               </Link>
             </li>
@@ -49,30 +55,39 @@ function Navbar() {
             {isLoggedIn && (
               <>
                 <li className="nav-item">
-                  <button className="btn btn-link" onClick={handleEventsClick} style={{ fontSize: "18px", fontWeight: "bold" }}>
+                  <button
+                    className="btn btn-link"
+                    onClick={handleEventsClick}
+                    style={{ fontSize: "18px", fontWeight: "bold" }}
+                  >
                     Events
                   </button>
                 </li>
 
                 <li className="nav-item">
-                  <button className="btn btn-link" onClick={handleBooksClick} style={{ fontSize: "18px", fontWeight: "bold" }}>
+                  <button
+                    className="btn btn-link"
+                    onClick={handleBooksClick}
+                    style={{ fontSize: "18px", fontWeight: "bold" }}
+                  >
                     Books
                   </button>
                 </li>
 
                 <li className="nav-item">
-                  <button className="btn btn-link" onClick={handleMoviesClick} style={{ fontSize: "18px", fontWeight: "bold" }}>
-                    Add Image
-                  </button>
-                </li>
-
-                <li className="nav-item">
-                  <button className="btn btn-link" onClick={logOutUser} style={{ fontSize: "18px", fontWeight: "bold" }}>
+                  <button
+                    className="btn btn-link"
+                    onClick={logOutUser}
+                    style={{ fontSize: "18px", fontWeight: "bold" }}
+                  >
                     Logout
                   </button>
                 </li>
                 <li className="nav-item">
-                  <span className="nav-link navbar-text" style={{ fontSize: "18px", fontWeight: "bold" }}>
+                  <span
+                    className="nav-link navbar-text"
+                    style={{ fontSize: "18px", fontWeight: "bold" }}
+                  >
                     {user && user.name}
                   </span>
                 </li>
@@ -82,12 +97,20 @@ function Navbar() {
             {!isLoggedIn && (
               <>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/signup" style={{ fontSize: "18px", fontWeight: "bold" }}>
+                  <Link
+                    className="nav-link"
+                    to="/signup"
+                    style={{ fontSize: "18px", fontWeight: "bold" }}
+                  >
                     Sign Up
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/login" style={{ fontSize: "18px", fontWeight: "bold" }}>
+                  <Link
+                    className="nav-link"
+                    to="/login"
+                    style={{ fontSize: "18px", fontWeight: "bold" }}
+                  >
                     Login
                   </Link>
                 </li>

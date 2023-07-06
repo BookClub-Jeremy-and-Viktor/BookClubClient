@@ -5,7 +5,7 @@ function HomePage() {
   return (
     <div>
       <h2>The Book Club  of Jeremy & Viktor</h2>
-      <h3>Please sign up or login to see the available events and books</h3>
+      <h4>Please sign up or login to see the available events and books</h4>
       <h4>After the registration or the sign in, just click the events or books title</h4>
       <div className="book-card-container">
         {/* <BookListPage /> */}

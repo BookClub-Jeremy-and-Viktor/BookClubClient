@@ -42,7 +42,7 @@ function SignupPage(props) {
         <div className="col-md-6">
           <div className="card">
             <div className="card-body">
-              <h1 className="card-title">Sign Up</h1>
+              <h1 className="card-title shadow-lg p-3 mb-5 bg-body-tertiary rounded">Sign Up</h1>
 
               <form onSubmit={handleSignupSubmit}>
                 <div className="form-group">
@@ -52,7 +52,7 @@ function SignupPage(props) {
                     name="email"
                     value={email}
                     onChange={handleEmail}
-                    className="form-control"
+                    className="form-control shadow p-3 mb-5 bg-body-tertiary rounded"
                   />
                 </div>
 
@@ -63,7 +63,7 @@ function SignupPage(props) {
                     name="password"
                     value={password}
                     onChange={handlePassword}
-                    className="form-control"
+                    className="form-control shadow p-3 mb-5 bg-body-tertiary rounded"
                   />
                 </div>
 
@@ -74,7 +74,7 @@ function SignupPage(props) {
                     name="name"
                     value={name}
                     onChange={handleName}
-                    className="form-control"
+                    className="form-control shadow p-3 mb-5 bg-body-tertiary rounded"
                   />
                 </div>
 

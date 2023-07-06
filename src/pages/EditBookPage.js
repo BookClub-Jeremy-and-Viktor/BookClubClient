@@ -129,10 +129,10 @@ function EditBookPage(props) {
           onChange={(e) => setComments(e.target.value)}
         />
         
-        <button type="submit">Update Book</button>
+        <button type="submit" className="btn btn-primary">Update Book</button>
       </form>
 
-      <button onClick={deleteBook}>Delete Book</button>
+      <button onClick={deleteBook} className="btn btn-primary">Delete Book</button>
     </div>
   );
 }

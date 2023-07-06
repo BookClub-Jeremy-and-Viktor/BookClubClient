@@ -42,17 +42,17 @@ function LoginPage(props) {
         <div className="col-md-6">
           <div className="card">
             <div className="card-body">
-              <h1 className="card-title">Login</h1>
+              <h1 className="card-title shadow-lg p-3 mb-5 bg-body-tertiary rounded">Login</h1>
 
               <form onSubmit={handleLoginSubmit}>
-                <div className="form-group">
+                <div className="form-group ">
                   <label>Email:</label>
                   <input
                     type="email"
                     name="email"
                     value={email}
                     onChange={handleEmail}
-                    className="form-control"
+                    className="form-control shadow p-3 mb-5 bg-body-tertiary rounded"
                   />
                 </div>
 
@@ -63,7 +63,7 @@ function LoginPage(props) {
                     name="password"
                     value={password}
                     onChange={handlePassword}
-                    className="form-control"
+                    className="form-control shadow p-3 mb-5 bg-body-tertiary rounded"
                   />
                 </div>
 

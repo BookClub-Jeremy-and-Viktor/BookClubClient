@@ -22,9 +22,9 @@ function BookCard({
       />
       <div className="card-body">
         <h4 className="card-subtitle mb-2 text-muted">Author:</h4>
-        <p className="card-text">{author}</p>
+        <p className="card-text shadow p-3 mb-5 bg-white rounded">{author}</p>
         <h4 className="card-subtitle mb-2 text-muted">Description:</h4>
-        <p className="card-text">{description}</p>
+        <p className="card-text shadow p-3 mb-5 bg-body-tertiary rounded">{description}</p>
         <h4 className="card-subtitle mb-2 text-muted">Genre:</h4>
         <p className="card-text">{genre}</p>
         <h4 className="card-subtitle mb-2 text-muted">Availability:</h4>

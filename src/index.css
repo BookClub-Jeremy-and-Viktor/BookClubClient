@@ -2,9 +2,14 @@ body {
   margin: 0;
 }
 
+h3 {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+
 a {
   list-style: none;
-  color: black;
+  color: gray;
 }
 
 button,
@@ -22,7 +27,7 @@ label {
 
 input,
 textarea {
-  width: 200px;
+  width: 300px;
   padding: 10px;
   display: inline-block;
   margin: 10px;
@@ -55,10 +60,10 @@ textarea {
   border-radius: 4px;
 }
 
-.EventCard h3::after {
+/*.EventCard h3::after {
   content: url("https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/m3/icon-expand.png");
   margin-left: 5px;
-}
+}*/
 
 .AddMovie,
 .EditBookPage,

@@ -34,7 +34,7 @@ function EventDetailsPage(props) {
         <div className="col-md-6 custom-col"> 
           {event && (
             <>
-              <h1>{event.title}</h1>
+              <h3>{event.title}</h3>
               <p>Location: {event.location}</p>
               <p>Address: {event.address}</p>
               <p>Description: {event.description}</p>
