@@ -30,6 +30,7 @@ function EventListPage() {
   return (
     <div className="container">
       <div className="row">
+      <h4>To edit or delete an event, just click the events title</h4>
       <AddEvent refreshEvent={getAllEvents}/>
         {events.map((event, index) => (
           <div className="col-12 col-sm-6 col-md-4 mb-3" key={event._id}>
