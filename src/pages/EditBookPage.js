@@ -17,11 +17,12 @@ function EditBookPage(props) {
 
   const navigate =  useNavigate();
   const { bookId } = useParams();
+  const storedToken = localStorage.getItem('authToken');
   
   
   useEffect(() => {
     // Get the token from the localStorage
-    const storedToken = localStorage.getItem('authToken');
+
     
     // Send the token through the request "Authorization" Headers 
     axios
@@ -42,14 +43,25 @@ function EditBookPage(props) {
       .catch((error) => console.log(error));
     
   }, [bookId]);
+
+  const handleFileUpload = (e) => {
+    e.preventDefault();
+    const uploadData = new FormData();
+    uploadData.append("imageUrl", e.target.files[0]);
+
+    axios
+      .post(`${process.env.REACT_APP_SERVER_URL}/api/upload`, uploadData, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => {
+        setImageUrl(response.data.fileUrl);
+      });
+  };
   
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const requestBody = { title, author, description, genre, availability, comments, imageUrl};
-  
-    // Get the token from the localStorage
-    const storedToken = localStorage.getItem('authToken');  
 
     // Send the token through the request "Authorization" Headers   
     axios
@@ -65,8 +77,7 @@ function EditBookPage(props) {
   
   
   const deleteBook = () => {
-    // Get the token from the localStorage
-    const storedToken = localStorage.getItem('authToken');      
+  
     
     // Send the token through the request "Authorization" Headers   
     axios
@@ -136,7 +147,7 @@ function EditBookPage(props) {
         <input
           type="file"
           name="imageUrl"
-          onChange={(e) => setImageUrl(e.target.value)}
+          onChange={(e) => handleFileUpload(e)}
         />
 
         

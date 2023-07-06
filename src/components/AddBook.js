@@ -19,7 +19,6 @@ function AddBook(props) {
 
   const handleFileUpload = (e) => {
     e.preventDefault();
-    console.log('my image', e.target.files[0])
     const uploadData = new FormData();
     uploadData.append("imageUrl", e.target.files[0]);
 
