@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+![Book Club logo](https://https://book-club-events.netlify.app/images/bookclub2.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project 3 | Book Club Client - Frontend
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+This project focuses on building a Web application (Frontend). 
+We are having React SPA frontend, built with React, 
+implementing all CRUD actions.
 
-### `npm start`
+To see a list of available books and scheduled events the
+user needs to sign up first and log in with his/ her newly
+created credentials. After the login the user is presented
+with a list of books and a list of events. By clicking on
+the button “Books” the user has the possibility to create a
+new entry in the list of available books with the
+opportunity to upload images from the user´s computers and
+place them as a book cover.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+When the user clicks on the title of the book, he/ she can
+edit, update the content of the book entry and change the
+image of the book cover. The user can delete the book entry
+from the list of books too.
+The same operations can be performed with the list of
+events, when the user clicks on the button “Events”, with
+the exception of the image upload.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Demo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[Book Club : ](https://book-club-events.netlify.app)
 
-### `npm run build`
+## Instructions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This project was installed using the command:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+$ npx create-react-app project-management-client
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Run this app
 
-### `npm run eject`
+In order to run this app please install all the dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+$ npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+And run the app with:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+$ npm run start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Now you can start developing.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br>
 
-### Code Splitting
+## Used technology
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Visual Code, Github
+- React
+- JS, CSS
+- Netlify,
+- Cloudinary
 
-### Analyzing the Bundle Size
+## Contributors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Jeremy Couderc
+- Thanks to the Ironhack team and their support
