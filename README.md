@@ -1,5 +1,3 @@
-![Book Club logo](https://https://book-club-events.netlify.app/images/bookclub2.png)
-
 # Project 3 | Book Club Client - Frontend
 
 ## Description
@@ -35,7 +33,7 @@ the exception of the image upload.
 This project was installed using the command:
 
 ```bash
-$ npx create-react-app project-management-client
+$ npx create-react-app 
 ```
 
 ## Run this app
